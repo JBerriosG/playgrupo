@@ -126,24 +126,31 @@
         </div>
 
         <!-- Extra contact info -->
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-4 gap-6 text-center">
             <div class="flex flex-col items-center gap-2">
                 <span class="text-3xl">📍</span>
                 <p class="font-semibold text-gray-700 text-sm">Dirección</p>
-                <p class="text-gray-500 text-sm">Av. Siempreviva 742, Buenos Aires</p>
+                <p class="text-gray-500 text-sm">Av. Américo Vespucio 1849, Huechuraba</p>
             </div>
             <div class="flex flex-col items-center gap-2">
                 <span class="text-3xl">📞</span>
                 <p class="font-semibold text-gray-700 text-sm">Teléfono</p>
                 <a href="tel:+541112345678" class="text-[#ff7522] text-sm font-semibold hover:text-[#668ced] transition-colors">
-                    +54 11 1234-5678
+                    +56 9 4353 4326
                 </a>
             </div>
             <div class="flex flex-col items-center gap-2">
                 <span class="text-3xl">✉️</span>
                 <p class="font-semibold text-gray-700 text-sm">Email</p>
                 <a href="mailto:hola@playgrupo.com" class="text-[#ff7522] text-sm font-semibold hover:text-[#668ced] transition-colors">
-                    hola@playgrupo.com
+                    leiyihu1985@gmail.com
+                </a>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-3xl">📸</span>
+                <p class="font-semibold text-gray-700 text-sm">Instagram</p>
+                <a href="mailto:hola@playgrupo.com" class="text-[#ff7522] text-sm font-semibold hover:text-[#668ced] transition-colors">
+                    playgrupo.cl
                 </a>
             </div>
         </div>
@@ -157,6 +164,15 @@
     const btnLabel = document.getElementById('btn-label') as HTMLSpanElement;
     const btnSpinner = document.getElementById('btn-spinner') as unknown as SVGElement;
     const successMsg = document.getElementById('success-msg') as HTMLDivElement;
+
+    // Error banner for server-side failures
+    let errorBanner = document.getElementById('error-banner') as HTMLDivElement | null;
+    if (!errorBanner) {
+        errorBanner = document.createElement('div');
+        errorBanner.id = 'error-banner';
+        errorBanner.className = 'hidden text-center bg-red-50 border-2 border-red-200 text-red-700 font-semibold rounded-xl py-4 px-6 text-sm';
+        successMsg.insertAdjacentElement('afterend', errorBanner);
+    }
 
     const fields = ['name', 'email', 'subject', 'message'];
 
@@ -172,9 +188,7 @@
             valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
         }
 
-        if (errorEl) {
-            errorEl.classList.toggle('hidden', valid);
-        }
+        if (errorEl) errorEl.classList.toggle('hidden', valid);
         input.classList.toggle('border-red-400', !valid);
         input.classList.toggle('border-gray-200', valid);
         input.classList.toggle('border-[#ff7522]', false);
@@ -182,7 +196,7 @@
         return valid;
     }
 
-    // Live validation on blur
+    // Live validation on blur / input
     fields.forEach((id) => {
         const el = document.getElementById(id);
         el?.addEventListener('blur', () => validateField(id));
@@ -195,19 +209,40 @@
         const allValid = fields.every((id) => validateField(id));
         if (!allValid) return;
 
-        // Simulate sending
+        // Reset banners
+        successMsg.classList.add('hidden');
+        errorBanner!.classList.add('hidden');
+
+        // Show loading state
         submitBtn.disabled = true;
         btnLabel.textContent = 'Enviando...';
         btnSpinner.classList.remove('hidden');
 
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                body: new FormData(form),
+            });
 
-        form.reset();
-        submitBtn.disabled = false;
-        btnLabel.textContent = 'Enviar mensaje';
-        btnSpinner.classList.add('hidden');
-        successMsg.classList.remove('hidden');
+            const result = await response.json();
 
-        setTimeout(() => successMsg.classList.add('hidden'), 5000);
+            if (response.ok) {
+                form.reset();
+                successMsg.classList.remove('hidden');
+                setTimeout(() => successMsg.classList.add('hidden'), 6000);
+            } else {
+                errorBanner!.textContent = `❌ ${result.error ?? 'Ocurrió un error. Intentá más tarde.'}`;
+                errorBanner!.classList.remove('hidden');
+                setTimeout(() => errorBanner!.classList.add('hidden'), 6000);
+            }
+        } catch {
+            errorBanner!.textContent = '❌ No se pudo conectar con el servidor. Intentá más tarde.';
+            errorBanner!.classList.remove('hidden');
+            setTimeout(() => errorBanner!.classList.add('hidden'), 6000);
+        } finally {
+            submitBtn.disabled = false;
+            btnLabel.textContent = 'Enviar mensaje';
+            btnSpinner.classList.add('hidden');
+        }
     });
 </script>
