@@ -1,0 +1,131 @@
+---
+const plans = [
+    {
+        name: "Plan Básico",
+        price: "15.000",
+        frequency: "/ mes",
+        description: "Ideal para comenzar a jugar y explorar.",
+        features: [
+            "2 días por semana",
+            "1 hora por sesión",
+            "Acceso a área de juegos",
+            "Materiales incluidos",
+        ],
+        highlighted: false,
+        cta: "Empezar ahora",
+    },
+    {
+        name: "Plan Completo",
+        price: "25.000",
+        frequency: "/ mes",
+        description: "El más elegido por nuestras familias.",
+        features: [
+            "5 días por semana",
+            "2 horas por sesión",
+            "Acceso a todas las áreas",
+            "Materiales incluidos",
+            "Actividades especiales",
+        ],
+        highlighted: true,
+        cta: "Elegir plan",
+    },
+    {
+        name: "Plan Familiar",
+        price: "35.000",
+        frequency: "/ mes",
+        description: "Para que toda la familia disfrute.",
+        features: [
+            "Acceso ilimitado",
+            "Hasta 2 niños",
+            "Acceso a todas las áreas",
+            "Materiales incluidos",
+            "Actividades especiales",
+            "Descuento en eventos",
+        ],
+        highlighted: false,
+        cta: "Empezar ahora",
+    },
+];
+---
+
+<section class="py-16 px-6 bg-white" id="planes">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-[#ff7522] mb-3">Planes y Precios</h2>
+            <p class="text-gray-500 text-lg">Elegí el plan que mejor se adapta a tu familia</p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {plans.map((plan) => (
+                <div
+                    class={`rounded-2xl border-2 flex flex-col overflow-hidden shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg ${
+                        plan.highlighted
+                            ? "border-[#ff7522] bg-[#ff7522] text-white"
+                            : "border-gray-200 bg-white text-gray-700"
+                    }`}
+                >
+                    {/* Badge */}
+                    {plan.highlighted && (
+                        <div class="bg-white text-[#ff7522] text-xs font-bold text-center py-1 tracking-widest uppercase">
+                            ★ Más popular
+                        </div>
+                    )}
+
+                    <div class="p-8 flex flex-col gap-6 flex-1">
+                        {/* Name & price */}
+                        <div>
+                            <h3 class={`text-xl font-bold mb-1 ${plan.highlighted ? "text-white" : "text-gray-800"}`}>
+                                {plan.name}
+                            </h3>
+                            <p class={`text-sm mb-4 ${plan.highlighted ? "text-white/80" : "text-gray-400"}`}>
+                                {plan.description}
+                            </p>
+                            <div class="flex items-end gap-1">
+                                <span class={`text-4xl font-extrabold ${plan.highlighted ? "text-white" : "text-[#ff7522]"}`}>
+                                    ${plan.price}
+                                </span>
+                                <span class={`text-sm pb-1 ${plan.highlighted ? "text-white/70" : "text-gray-400"}`}>
+                                    {plan.frequency}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Features */}
+                        <ul class="flex flex-col gap-2 flex-1">
+                            {plan.features.map((feature) => (
+                                <li class="flex items-center gap-2 text-sm">
+                                    <svg
+                                        class={`w-4 h-4 shrink-0 ${plan.highlighted ? "text-white" : "text-[#ff7522]"}`}
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                    >
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* CTA */}
+                        <a
+                            href="/#contacto"
+                            class={`mt-4 block text-center rounded-xl py-3 px-6 font-bold text-sm transition-colors duration-200 ${
+                                plan.highlighted
+                                    ? "bg-white text-[#ff7522] hover:bg-[#668ced] hover:text-white"
+                                    : "bg-[#ff7522] text-white hover:bg-[#668ced]"
+                            }`}
+                        >
+                            {plan.cta}
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+    </div>
+</section>

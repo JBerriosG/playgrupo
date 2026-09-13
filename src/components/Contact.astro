@@ -1,0 +1,213 @@
+---
+
+---
+
+<section class="py-16 px-6 bg-gray-50" id="contacto">
+    <div class="max-w-3xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-[#ff7522] mb-3">Contacto</h2>
+            <p class="text-gray-500 text-lg">¿Tenés alguna consulta? Escribinos y te respondemos a la brevedad.</p>
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm p-8 md:p-12">
+            <form
+                id="contact-form"
+                novalidate
+                class="flex flex-col gap-6"
+            >
+                <!-- Name & Email row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-1.5">
+                        <label for="name" class="text-sm font-semibold text-gray-700">
+                            Nombre y apellido <span class="text-[#ff7522]">*</span>
+                        </label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            placeholder="Ej: María García"
+                            class="rounded-xl border-2 border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#ff7522] transition-colors duration-200"
+                        />
+                        <p class="error-msg hidden text-xs text-red-500">Este campo es obligatorio.</p>
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label for="email" class="text-sm font-semibold text-gray-700">
+                            Correo electrónico <span class="text-[#ff7522]">*</span>
+                        </label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            placeholder="Ej: maria@email.com"
+                            class="rounded-xl border-2 border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#ff7522] transition-colors duration-200"
+                        />
+                        <p class="error-msg hidden text-xs text-red-500">Ingresá un correo válido.</p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex flex-col gap-1.5">
+                    <label for="phone" class="text-sm font-semibold text-gray-700">
+                        Teléfono <span class="text-gray-400 font-normal">(opcional)</span>
+                    </label>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Ej: +54 11 1234-5678"
+                        class="rounded-xl border-2 border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#ff7522] transition-colors duration-200"
+                    />
+                </div>
+
+                <!-- Subject -->
+                <div class="flex flex-col gap-1.5">
+                    <label for="subject" class="text-sm font-semibold text-gray-700">
+                        Asunto <span class="text-[#ff7522]">*</span>
+                    </label>
+                    <select
+                        id="subject"
+                        name="subject"
+                        required
+                        class="rounded-xl border-2 border-gray-200 px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#ff7522] transition-colors duration-200 bg-white"
+                    >
+                        <option value="" disabled selected>Seleccioná una opción</option>
+                        <option value="inscripcion">Inscripción</option>
+                        <option value="horarios">Consulta sobre horarios</option>
+                        <option value="planes">Planes y precios</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <p class="error-msg hidden text-xs text-red-500">Por favor seleccioná un asunto.</p>
+                </div>
+
+                <!-- Message -->
+                <div class="flex flex-col gap-1.5">
+                    <label for="message" class="text-sm font-semibold text-gray-700">
+                        Mensaje <span class="text-[#ff7522]">*</span>
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows="5"
+                        placeholder="Escribí tu consulta acá..."
+                        class="rounded-xl border-2 border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#ff7522] transition-colors duration-200 resize-none"
+                    ></textarea>
+                    <p class="error-msg hidden text-xs text-red-500">Este campo es obligatorio.</p>
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submit-btn"
+                    class="w-full bg-[#ff7522] text-white font-bold rounded-xl py-3 px-6 hover:bg-[#668ced] transition-colors duration-200 text-sm flex items-center justify-center gap-2"
+                >
+                    <span id="btn-label">Enviar mensaje</span>
+                    <svg id="btn-spinner" class="hidden animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                    </svg>
+                </button>
+
+                <!-- Success message -->
+                <div
+                    id="success-msg"
+                    class="hidden text-center bg-green-50 border-2 border-green-200 text-green-700 font-semibold rounded-xl py-4 px-6 text-sm"
+                >
+                    ✅ ¡Mensaje enviado! Te responderemos a la brevedad.
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Extra contact info -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-3xl">📍</span>
+                <p class="font-semibold text-gray-700 text-sm">Dirección</p>
+                <p class="text-gray-500 text-sm">Av. Siempreviva 742, Buenos Aires</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-3xl">📞</span>
+                <p class="font-semibold text-gray-700 text-sm">Teléfono</p>
+                <a href="tel:+541112345678" class="text-[#ff7522] text-sm font-semibold hover:text-[#668ced] transition-colors">
+                    +54 11 1234-5678
+                </a>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-3xl">✉️</span>
+                <p class="font-semibold text-gray-700 text-sm">Email</p>
+                <a href="mailto:hola@playgrupo.com" class="text-[#ff7522] text-sm font-semibold hover:text-[#668ced] transition-colors">
+                    hola@playgrupo.com
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const btnLabel = document.getElementById('btn-label') as HTMLSpanElement;
+    const btnSpinner = document.getElementById('btn-spinner') as unknown as SVGElement;
+    const successMsg = document.getElementById('success-msg') as HTMLDivElement;
+
+    const fields = ['name', 'email', 'subject', 'message'];
+
+    function validateField(id: string): boolean {
+        const input = document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+        const errorEl = input.parentElement?.querySelector('.error-msg') as HTMLElement | null;
+
+        let valid = true;
+
+        if (!input.value.trim()) {
+            valid = false;
+        } else if (id === 'email') {
+            valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+        }
+
+        if (errorEl) {
+            errorEl.classList.toggle('hidden', valid);
+        }
+        input.classList.toggle('border-red-400', !valid);
+        input.classList.toggle('border-gray-200', valid);
+        input.classList.toggle('border-[#ff7522]', false);
+
+        return valid;
+    }
+
+    // Live validation on blur
+    fields.forEach((id) => {
+        const el = document.getElementById(id);
+        el?.addEventListener('blur', () => validateField(id));
+        el?.addEventListener('input', () => validateField(id));
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const allValid = fields.every((id) => validateField(id));
+        if (!allValid) return;
+
+        // Simulate sending
+        submitBtn.disabled = true;
+        btnLabel.textContent = 'Enviando...';
+        btnSpinner.classList.remove('hidden');
+
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        form.reset();
+        submitBtn.disabled = false;
+        btnLabel.textContent = 'Enviar mensaje';
+        btnSpinner.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+
+        setTimeout(() => successMsg.classList.add('hidden'), 5000);
+    });
+</script>

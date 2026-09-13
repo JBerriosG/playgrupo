@@ -1,0 +1,129 @@
+---
+const values = [
+    {
+        icon: "🎨",
+        title: "Creatividad",
+        description: "Fomentamos la imaginación y la expresión artística en cada actividad.",
+    },
+    {
+        icon: "🤝",
+        title: "Comunidad",
+        description: "Creamos un espacio de encuentro para familias que comparten la crianza.",
+    },
+    {
+        icon: "💛",
+        title: "Afecto",
+        description: "Cada niño es bienvenido con calidez, respeto y mucho cariño.",
+    },
+    {
+        icon: "🌱",
+        title: "Desarrollo",
+        description: "Acompañamos el crecimiento integral de los más pequeños de manera lúdica.",
+    },
+];
+
+const team = [
+    {
+        name: "Laura Méndez",
+        role: "Fundadora & Coordinadora",
+        emoji: "👩‍🏫",
+    },
+    {
+        name: "Sofía Torres",
+        role: "Tallerista de Arte",
+        emoji: "🎨",
+    },
+    {
+        name: "Valeria Ríos",
+        role: "Educadora Musical",
+        emoji: "🎵",
+    },
+];
+---
+
+<section class="py-16 px-6 bg-white" id="nosotros">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-[#ff7522] mb-3">Nosotros</h2>
+            <p class="text-gray-500 text-lg">Conocé quiénes somos y qué nos mueve cada día</p>
+        </div>
+
+        <!-- Story -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+
+            <!-- Logo -->
+            <div class="flex justify-center">
+                <div class="bg-[#ff7522]/10 rounded-3xl p-8 flex items-center justify-center w-64 h-64">
+                    <img
+                        src="/src/assets/Logo_playgrupo.png"
+                        alt="Logo Playgrupo"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div class="flex flex-col gap-4 text-gray-600 text-base leading-relaxed">
+                <h3 class="text-2xl font-bold text-gray-800">¿Quiénes somos?</h3>
+                <p>
+                    <span class="font-semibold text-[#ff7522]">Playgrupo</span> nació con la convicción
+                    de que los primeros años de vida son los más importantes. Somos un espacio de juego,
+                    aprendizaje y encuentro pensado para niños de <strong>1 a 5 años</strong> y sus familias.
+                </p>
+                <p>
+                    Nuestro equipo está formado por educadoras y talleristas apasionadas por la infancia,
+                    que diseñan cada actividad con intención pedagógica y mucho amor.
+                </p>
+                <p>
+                    Desde nuestra apertura, hemos acompañado a cientos de familias en esta etapa única,
+                    construyendo lazos y recuerdos que duran toda la vida.
+                </p>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-gray-800">Nuestros valores</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {values.map((value) => (
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:-translate-y-1 hover:shadow-lg transition-transform duration-200">
+                    <span class="text-4xl">{value.icon}</span>
+                    <h4 class="font-bold text-gray-800 text-lg">{value.title}</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">{value.description}</p>
+                </div>
+            ))}
+        </div>
+
+        <!-- Team -->
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-gray-800">Nuestro equipo</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+            {team.map((member) => (
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 flex flex-col items-center text-center gap-3 hover:-translate-y-1 hover:shadow-lg transition-transform duration-200">
+                    <span class="text-5xl">{member.emoji}</span>
+                    <h4 class="font-bold text-gray-800 text-base">{member.name}</h4>
+                    <p class="text-[#ff7522] text-sm font-semibold">{member.role}</p>
+                </div>
+            ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-[#ff7522] rounded-2xl p-10 text-center text-white">
+            <h3 class="text-2xl font-bold mb-2">¿Querés conocernos en persona?</h3>
+            <p class="text-white/80 mb-6 text-base">
+                Visitanos, tomamos un café y te contamos todo sobre Playgrupo.
+            </p>
+            <a
+                href="#contacto"
+                class="inline-block bg-white text-[#ff7522] font-bold rounded-xl px-8 py-3 hover:bg-[#668ced] hover:text-white transition-colors duration-200"
+            >
+                Contactanos
+            </a>
+        </div>
+
+    </div>
+</section>
