@@ -1,49 +1,104 @@
 ---
 const plans = [
     {
-        name: "Plan Básico",
-        price: "15.000",
-        frequency: "/ mes",
-        description: "Ideal para comenzar a jugar y explorar.",
+        name: "Plan Mensual",
+
+        price: "9.000",
+
+        frequency: "/ 30 días",
+
+        description: "Disfruta de la diversión en Playgrupo durante 30 días.",
+
         features: [
-            "2 días por semana",
-            "1 hora por sesión",
-            "Acceso a área de juegos",
-            "Materiales incluidos",
+            "Vigencia de 30 días",
+            "Incluye regalo",
+            "Equivale a un día de juego a $3.300",
+            "Válido para trampolines y zona para niños",
         ],
+
         highlighted: false,
-        cta: "Empezar ahora",
-    },
-    {
-        name: "Plan Completo",
-        price: "25.000",
-        frequency: "/ mes",
-        description: "El más elegido por nuestras familias.",
-        features: [
-            "5 días por semana",
-            "2 horas por sesión",
-            "Acceso a todas las áreas",
-            "Materiales incluidos",
-            "Actividades especiales",
-        ],
-        highlighted: true,
+
         cta: "Elegir plan",
     },
+
     {
-        name: "Plan Familiar",
-        price: "35.000",
-        frequency: "/ mes",
-        description: "Para que toda la familia disfrute.",
+        name: "Plan Anual",
+
+        price: "590.000",
+
+        frequency: "/ 365 días",
+
+        description: "La mejor alternativa para disfrutar Playgrupo durante todo el año.",
+
         features: [
-            "Acceso ilimitado",
-            "Hasta 2 niños",
-            "Acceso a todas las áreas",
-            "Materiales incluidos",
-            "Actividades especiales",
-            "Descuento en eventos",
+            "Vigencia de 365 días",
+            "Incluye regalo",
+            "Incluye set Capibara",
+            "Equivale a un día de juego a $1.616",
+            "Válido para trampolines y zona para niños",
+        ],
+
+        highlighted: true,
+
+        cta: "Elegir plan",
+    },
+];
+
+const tariffs = [
+    {
+        id: "60-min-weekdays",
+        name: "60 minutos",
+        price: "9.900",
+        duration: "60 minutos",
+        schedule: "Lunes a jueves",
+        description: "Disfruta de 60 minutos de diversión.",
+        features: [
+            "Válido de lunes a jueves",
+            "Acceso por 60 minutos",
         ],
         highlighted: false,
-        cta: "Empezar ahora",
+        cta: "Elegir tarifa",
+    },
+    {
+        id: "60-min-weekends",
+        name: "60 minutos",
+        price: "11.900",
+        duration: "60 minutos",
+        schedule: "Viernes a domingo y feriados",
+        description: "Disfruta de 60 minutos de diversión.",
+        features: [
+            "Válido viernes, sábado, domingo y feriados",
+            "Acceso por 60 minutos",
+        ],
+        highlighted: false,
+        cta: "Elegir tarifa",
+    },
+    {
+        id: "120-min-all-days",
+        name: "120 minutos",
+        price: "16.900",
+        duration: "120 minutos",
+        schedule: "Todos los días",
+        description: "Duplica la diversión con 120 minutos de juego.",
+        features: [
+            "Válido todos los días",
+            "Acceso por 120 minutos",
+        ],
+        highlighted: true,
+        cta: "Elegir tarifa",
+    },
+    {
+        id: "karting",
+        name: "Karting",
+        price: "5.000",
+        duration: "5 minutos",
+        schedule: "Según disponibilidad",
+        description: "Vive la emoción del karting.",
+        features: [
+            "5 minutos de duración",
+        ],
+        highlighted: false,
+        cta: "Ver tarifa",
     },
 ];
 ---
@@ -58,7 +113,7 @@ const plans = [
         </div>
 
         <!-- Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {plans.map((plan) => (
                 <div
                     class={`rounded-2xl border-2 flex flex-col overflow-hidden shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg ${
