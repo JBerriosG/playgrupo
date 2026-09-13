@@ -2,6 +2,15 @@ import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
 export const POST: APIRoute = async ({ request }) => {
+
+    console.log('[contact] ENV:', {
+    SMTP_HOST: import.meta.env.SMTP_HOST,
+    SMTP_PORT: import.meta.env.SMTP_PORT,
+    SMTP_SECURE: import.meta.env.SMTP_SECURE,
+    SMTP_USER: import.meta.env.SMTP_USER,
+    SMTP_PASS_EXISTS: !!import.meta.env.SMTP_PASS,
+    CONTACT_TO: import.meta.env.CONTACT_TO,
+});
     const data = await request.formData();
 
     const name    = (data.get('name')    as string | null)?.trim() ?? '';
