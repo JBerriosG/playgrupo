@@ -182,5 +182,95 @@ const tariffs = [
             ))}
         </div>
 
+        <!-- Tariffs -->
+        <div class="mt-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-800">Tarifas por ingreso</h3>
+                <p class="text-gray-500 mt-2">Pagá solo por el tiempo que necesitás</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-start">
+                {tariffs.map((tariff) => (
+                    <div
+                        class={`rounded-2xl border-2 flex flex-col overflow-hidden shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg ${
+                            tariff.highlighted
+                                ? "border-[#ff7522] bg-[#ff7522] text-white"
+                                : "border-gray-200 bg-white text-gray-700"
+                        }`}
+                    >
+                        {/* Badge */}
+                        {tariff.highlighted && (
+                            <div class="bg-white text-[#ff7522] text-xs font-bold text-center py-1 tracking-widest uppercase">
+                                ★ Más elegida
+                            </div>
+                        )}
+
+                        <div class="p-6 flex flex-col gap-4 flex-1">
+                            {/* Duration badge */}
+                            <span
+                                class={`self-start text-xs font-bold rounded-full px-3 py-1 ${
+                                    tariff.highlighted
+                                        ? "bg-white/20 text-white"
+                                        : "bg-[#ff7522]/10 text-[#ff7522]"
+                                }`}
+                            >
+                                ⏱ {tariff.duration}
+                            </span>
+
+                            {/* Name & schedule */}
+                            <div>
+                                <h4 class={`text-lg font-bold mb-1 ${tariff.highlighted ? "text-white" : "text-gray-800"}`}>
+                                    {tariff.name}
+                                </h4>
+                                <p class={`text-xs font-semibold ${tariff.highlighted ? "text-white/80" : "text-[#668ced]"}`}>
+                                    {tariff.schedule}
+                                </p>
+                            </div>
+
+                            {/* Price */}
+                            <div class="flex items-end gap-1">
+                                <span class={`text-3xl font-extrabold ${tariff.highlighted ? "text-white" : "text-[#ff7522]"}`}>
+                                    ${tariff.price}
+                                </span>
+                                <span class={`text-xs pb-1 ${tariff.highlighted ? "text-white/70" : "text-gray-400"}`}>
+                                    / persona
+                                </span>
+                            </div>
+
+                            {/* Features */}
+                            <ul class="flex flex-col gap-2 flex-1">
+                                {tariff.features.map((feature) => (
+                                    <li class="flex items-start gap-2 text-xs">
+                                        <svg
+                                            class={`w-3.5 h-3.5 shrink-0 mt-0.5 ${tariff.highlighted ? "text-white" : "text-[#ff7522]"}`}
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="3"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            {/* CTA */}
+                            <a
+                                href="/#contacto"
+                                class={`mt-2 block text-center rounded-xl py-2.5 px-4 font-bold text-xs transition-colors duration-200 ${
+                                    tariff.highlighted
+                                        ? "bg-white text-[#ff7522] hover:bg-[#668ced] hover:text-white"
+                                        : "bg-[#ff7522] text-white hover:bg-[#668ced]"
+                                }`}
+                            >
+                                {tariff.cta}
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
     </div>
 </section>
