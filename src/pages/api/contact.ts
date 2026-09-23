@@ -48,7 +48,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     try {
         await transporter.sendMail({
-            from:    `"Playgrupo Web" <${import.meta.env.SMTP_USER}>`,
+            from:    `"Funny Kids Web" <${import.meta.env.SMTP_USER}>`,
             to:      import.meta.env.CONTACT_TO,
             replyTo: email,
             subject: `[Contacto Web] ${subject} — ${name}`,
