@@ -3,7 +3,8 @@ const values = [
     {
         icon: "🎮",
         title: "Diversión",
-        description: "Un espacio pensado para disfrutar, jugar y vivir nuevas aventuras.",
+        description:
+            "Un espacio pensado para disfrutar, jugar y vivir nuevas aventuras.",
     },
     {
         icon: "👨‍👩‍👧‍👦",
@@ -13,12 +14,14 @@ const values = [
     {
         icon: "🛡️",
         title: "Seguridad",
-        description: "Un entorno preparado para que los niños puedan jugar y disfrutar con tranquilidad.",
+        description:
+            "Un entorno preparado para que los niños puedan jugar y disfrutar con tranquilidad.",
     },
     {
         icon: "🎉",
         title: "Celebraciones",
-        description: "El lugar ideal para cumpleaños y momentos especiales que queremos recordar.",
+        description:
+            "El lugar ideal para cumpleaños y momentos especiales que queremos recordar.",
     },
 ];
 
@@ -43,57 +46,71 @@ const team = [
 
 <section class="py-16 px-6 bg-white" id="nosotros">
     <div class="max-w-5xl mx-auto">
-
         <!-- Header -->
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-[#ff7522] mb-3">Nosotros</h2>
-            <p class="text-gray-500 text-lg">Conocé quiénes somos y qué nos mueve cada día</p>
+            <p class="text-gray-500 text-lg">
+                Conocé quiénes somos y qué nos mueve cada día
+            </p>
         </div>
 
         <!-- Story -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
-
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center mb-16">
             <!-- Logo -->
-            <div class="flex justify-center">
-                <div class="bg-[#ff7522]/10 rounded-3xl p-8 flex items-center justify-center w-64 h-64">
-                    <img
-                        src="/Logo_playgrupo.png"
-                        alt="Logo Playgrupo"
-                        class="w-full h-full object-contain"
-                    />
-                </div>
-            </div>
+            <img src="/Logo_smile.svg" alt="Logo FunnyKids" class="w-[80%]" />
 
             <!-- Text -->
-            <div class="flex flex-col gap-4 text-gray-600 text-base leading-relaxed">
-                <h3 class="text-2xl font-bold text-gray-800">¿Quiénes somos?</h3>
+            <div
+                class="flex flex-col gap-4 text-gray-600 text-base leading-relaxed"
+            >
+                <h3 class="text-2xl font-bold text-gray-800">
+                    ¿Quiénes somos?
+                </h3>
                 <p>
-                    <strong> Playgrupo </strong>es un espacio de entretención familiar creado para que niños, niñas y sus familias puedan disfrutar, jugar y crear momentos inolvidables juntos.
+                    <strong> Playgrupo </strong>es un espacio de entretención
+                    familiar creado para que niños, niñas y sus familias puedan
+                    disfrutar, jugar y crear momentos inolvidables juntos.
                 </p>
                 <p>
-                    Contamos con juegos, atracciones y espacios especialmente diseñados para que los más pequeños puedan divertirse en un entorno seguro, entretenido y pensado para ellos.
+                    Contamos con juegos, atracciones y espacios especialmente
+                    diseñados para que los más pequeños puedan divertirse en un
+                    entorno seguro, entretenido y pensado para ellos.
                 </p>
                 <p>
-                    Nuestra misión es transformar cada visita en una experiencia especial, combinando <strong>diversión, juego y momentos en familia.</strong>
+                    Nuestra misión es transformar cada visita en una experiencia
+                    especial, combinando <strong
+                        >diversión, juego y momentos en familia.</strong
+                    >
                 </p>
                 <p>
-                    En Playgrupo creemos que jugar es una de las mejores formas de disfrutar la infancia. Por eso trabajamos para crear espacios donde cada visita se convierta en una nueva aventura y en un recuerdo para compartir.
+                    En Playgrupo creemos que jugar es una de las mejores formas
+                    de disfrutar la infancia. Por eso trabajamos para crear
+                    espacios donde cada visita se convierta en una nueva
+                    aventura y en un recuerdo para compartir.
                 </p>
             </div>
         </div>
 
         <!-- Values -->
         <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-gray-800">¿Por qué elegir PlayGrupo?</h3>
+            <h3 class="text-2xl font-bold text-gray-800">
+                ¿Por qué elegir PlayGrupo?
+            </h3>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {values.map((value) => (
-                <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:-translate-y-1 hover:shadow-lg transition-transform duration-200">
-                    <span class="text-4xl">{value.icon}</span>
-                    <h4 class="font-bold text-gray-800 text-lg">{value.title}</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">{value.description}</p>
-                </div>
-            ))}
+            {
+                values.map((value) => (
+                    <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:-translate-y-1 hover:shadow-lg transition-transform duration-200">
+                        <span class="text-4xl">{value.icon}</span>
+                        <h4 class="font-bold text-gray-800 text-lg">
+                            {value.title}
+                        </h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            {value.description}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
 
         <!-- Team -->
@@ -112,7 +129,9 @@ const team = [
 
         <!-- CTA -->
         <div class="bg-[#ff7522] rounded-2xl p-10 text-center text-white">
-            <h3 class="text-2xl font-bold mb-2">¿Querés conocernos en persona?</h3>
+            <h3 class="text-2xl font-bold mb-2">
+                ¿Querés conocernos en persona?
+            </h3>
             <p class="text-white/80 mb-6 text-base">
                 Visitanos, tomamos un café y te contamos todo sobre Playgrupo.
             </p>
@@ -123,6 +142,5 @@ const team = [
                 Contactanos
             </a>
         </div>
-
     </div>
 </section>
